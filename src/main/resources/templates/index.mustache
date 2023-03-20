@@ -1,0 +1,30 @@
+{{>layouts/header}}
+
+    <h1>HSU Online Voting System</h1>
+    <hr>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <a href="candidate/save" role="button" class="btn btn-primary">후보자 등록</a>
+            <a href="votelist" role="button" class="btn btn-primary">후보자 목록</a>
+            {{#userName}}
+                Logged in as: <span id="user">{{userName}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+            {{/userName}}
+            {{^userName}}
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">
+                    Google Login</a>
+
+                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">
+                    Naver Login</a>
+            {{/userName}}
+        </div>
+        <hr>
+        <div>
+            {{#candidate}}
+                <a href="voteresult/{{id}}" role="button" class="btn btn-primary">{{id}}번 후보 투표 현황</a>
+            {{/candidate}}
+        </div>
+        <br>
+    </div>
+
+{{>layouts/footer}}

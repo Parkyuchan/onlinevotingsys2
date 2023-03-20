@@ -1,0 +1,39 @@
+{{>layouts/header}}
+
+<h1>후보자 투표</h1>
+<hr>
+<br>
+<h3>후보 {{candidate.id}}번</h3>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <img src="..." class="img-thumbnail" alt="...">
+    <img src="..." class="img-thumbnail" alt="...">
+</div>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight"> 학회장 후보 이름 : {{candidate.name_candidate1}}</div>
+</div>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight"> 학회장 후보 학과 : {{candidate.department_candidate1}}</div>
+</div>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight"> 학회장 후보 학번 : {{candidate.id_candidate2}}</div>
+</div>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight"> 부학회장 후보 이름 : {{candidate.name_candidate2}}</div>
+</div>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight"> 학회장 후보 학과 : {{candidate.department_candidate2}}</div>
+</div>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight"> 부학회장 후보 학번 : {{candidate.id_candidate2}}</div>
+</div>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="p-2 bd-highlight"> 공약 : {{candidate.gongyak}}</div>
+</div>
+<div>
+    <input id="candidate_id" type="hidden" value="{{candidate.id}}">
+    <button id="btn-positive">👍</button>
+    <button id="btn-negative">👎</button>
+</div>
+</div>
+
+{{>layouts/footer}}

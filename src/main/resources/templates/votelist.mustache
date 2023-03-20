@@ -1,0 +1,30 @@
+{{>layouts/header}}
+<h1> 후보자 목록 </h1>
+    <div>
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>후보번호</th>
+                <th>후보(학회장, 부학회장)</th>
+                <th>학과(학회장, 부학회장)</th>
+                <th>최종수정일</th>
+                <th>공약 수정</th>
+                <th>투표 하기</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#candidate}} <!--posts 라는 List를 순회 = java의 for문과 동일-->
+            <tr>
+                <td>{{id}}</td> <!--List에서 뽑아낸 객체의 필드를 사용-->
+                <td>{{name_candidate1}}, {{name_candidate2}}</td>
+                <td>{{department_candidate1}}, {{department_candidate2}}</td>
+                <td>{{modifiedDate}}</td>
+                <td><a href="/candidate/update/{{id}}">수정</a></td>
+                <td><a href="/vote/{{id}}">👉</a></td>
+            </tr>
+            {{/candidate}}
+            </tbody>
+        </table>
+    </div>
+
+{{>layouts/footer}}
