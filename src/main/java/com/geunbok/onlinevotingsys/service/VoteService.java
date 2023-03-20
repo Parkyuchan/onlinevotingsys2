@@ -2,14 +2,15 @@ package com.geunbok.onlinevotingsys.service;
 
 import com.geunbok.onlinevotingsys.config.auth.dto.OAuthAttributes;
 import com.geunbok.onlinevotingsys.config.auth.dto.SessionUser;
+import com.geunbok.onlinevotingsys.controller.dto.CandidateSaveRequestDto;
 import com.geunbok.onlinevotingsys.controller.dto.VoteDto;
+import com.geunbok.onlinevotingsys.domain.Candidate;
 import com.geunbok.onlinevotingsys.domain.CandidateRepository;
 import com.geunbok.onlinevotingsys.domain.Vote;
 import com.geunbok.onlinevotingsys.domain.VoteRepository;
 import com.geunbok.onlinevotingsys.domain.user.User;
 import com.geunbok.onlinevotingsys.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,12 +35,17 @@ public class VoteService {
 
         if(!(user.getIsVoted())) {
             user.updateisVoted(true);
+            Candidate candidate = candidateRepository.findById(voteDto.getId()).get();
 
             Vote vote = Vote.builder()
                     //.candidate(candidateRepository.findById(voteDto.getId()).get())
                     .opposite(voteDto.isOpposite())
                     .user(user)
+                    .candidate(candidate)
                     .build();
+
+            candidate.setAgree();
+
             return voteRepository.save(vote).getId();
         }
         Vote vote2 = Vote.builder()
@@ -53,6 +59,8 @@ public class VoteService {
 
         long agreeCount = voteRepository.countByVotedId();
         long disagreeCount = voteRepository.countByNotVotedId();
+
+        //int agreecount = candidateRepository.
 
         result.add((int)agreeCount);
         result.add((int)disagreeCount);

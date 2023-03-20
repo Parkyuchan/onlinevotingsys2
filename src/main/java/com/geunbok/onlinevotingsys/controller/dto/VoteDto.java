@@ -1,5 +1,6 @@
 package com.geunbok.onlinevotingsys.controller.dto;
 
+import com.geunbok.onlinevotingsys.domain.Candidate;
 import com.geunbok.onlinevotingsys.domain.Vote;
 import com.geunbok.onlinevotingsys.domain.user.User;
 import lombok.AllArgsConstructor;
@@ -16,11 +17,14 @@ public class VoteDto implements Serializable {
     private boolean opposite;
     private User user;
     private String userName;
-    public VoteDto(Long id, boolean opposite, User user) {
+    private Candidate candidate;
+
+    public VoteDto(Long id, boolean opposite, User user, Candidate candidate) {
 
         this.id = id;
         this.opposite = opposite;
         this.user = user;
         this.userName = user.getName();
+        this.candidate = candidate;
     }
 }

@@ -13,6 +13,7 @@ public class CandidateResponseDto {
     private String name_candidate2;
     private String id_candidate2;
     private String gongyak;
+    private int agree;
 
     public CandidateResponseDto(Candidate entity) {
         this.id = entity.getId();
@@ -23,5 +24,6 @@ public class CandidateResponseDto {
         this.name_candidate2 = entity.getName_candidate2();
         this.id_candidate2 = entity.getId_candidate2();
         this.gongyak = entity.getGongyak();
+        this.agree = entity.getAgree();
     }
 }

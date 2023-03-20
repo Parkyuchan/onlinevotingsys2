@@ -1,12 +1,11 @@
 {{>layouts/header}}
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
     <h1>후보자 투표</h1>
     <br>
     <h3>후보 {{candidate.id}}번 투표결과</h3>
+    <h3>후보 {{candidate.id}}번 찬성표 : {{candidate.agree}}표</h3>
     <div>
         <input id="candidate_id" type="hidden" value="{{candidate.id}}">
         <div id="chart_div4" style="text-align: center"></div>
     </div>
-
 {{>layouts/footer}}

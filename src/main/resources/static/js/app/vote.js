@@ -5,9 +5,9 @@ var vote = {
         $('#btn-positive').on('click', function () {
             _this.positive();
         });
-        $('#btn-negative').on('click', function () {
+        /*$('#btn-negative').on('click', function () {
             _this.negative();
-        });
+        });*/
     },
     positive : function () {
         var data = {
@@ -28,7 +28,7 @@ var vote = {
         }).fail(function (error) {
             alert('이미 투표한 계정입니다.');
         });
-    },
+    }/*,
     negative : function () {
             var data = {
                 id: $('#candidate_id').val(),
@@ -47,7 +47,7 @@ var vote = {
             }).fail(function (error) {
                 alert('이미 투표한 계정입니다.');
             });
-        }
+        }*/
 };
 
 vote.init();

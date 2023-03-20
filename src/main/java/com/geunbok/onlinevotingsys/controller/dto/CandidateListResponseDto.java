@@ -11,6 +11,7 @@ public class CandidateListResponseDto {
     private String department_candidate2;
     private String name_candidate2;
     private LocalDateTime modifiedDate;
+    private int agree;
 
     public CandidateListResponseDto(Candidate entity) {
         this.id = entity.getId();
@@ -19,5 +20,6 @@ public class CandidateListResponseDto {
         this.department_candidate2 = entity.getDepartment_candidate2();
         this.name_candidate2 = entity.getName_candidate2();
         this.modifiedDate = entity.getModifiedDate();
+        this.agree = entity.getAgree();
     }
 }

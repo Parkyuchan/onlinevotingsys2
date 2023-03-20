@@ -27,10 +27,14 @@ public class Vote extends BaseTimeEntity {
 
     @Column
     private String userName;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private Candidate candidate;
     @Builder
-    public Vote(boolean opposite, User user){
+    public Vote(boolean opposite, User user, Candidate candidate){
         this.opposite = opposite;
         this.user = user;
         this.userName = user.getName();
+        this.candidate = candidate;
     }
 }

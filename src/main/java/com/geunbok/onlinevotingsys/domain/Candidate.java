@@ -39,6 +39,9 @@ public class Candidate extends BaseTimeEntity {
     @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
+    @Column
+    private int agree;
+
     @Builder
     public Candidate(String department_candidate1, String name_candidate1, String id_candidate1, String department_candidate2,
                      String name_candidate2, String id_candidate2, String gongyak, User user) {
@@ -50,6 +53,7 @@ public class Candidate extends BaseTimeEntity {
         this.id_candidate2 = id_candidate2;
         this.gongyak = gongyak;
         this.user = user;
+        this.agree = 0;
     }
 
     public void update(String department_candidate1, String name_candidate1, String name_candidate2, String gongyak) {
@@ -59,5 +63,6 @@ public class Candidate extends BaseTimeEntity {
         this.gongyak = gongyak;
     }
 
+    public void setAgree() { this.agree++; }
 }
 

@@ -15,6 +15,7 @@ public class CandidateSaveRequestDto {
     private String name_candidate2;
     private String id_candidate2;
     private String gongyak;
+    private int agree;
 
     @Builder
     public CandidateSaveRequestDto(String department_candidate1, String name_candidate1, String id_candidate1,
@@ -26,6 +27,7 @@ public class CandidateSaveRequestDto {
         this.name_candidate2 = name_candidate2;
         this.id_candidate2 = id_candidate2;
         this.gongyak = gongyak;
+        this.agree = 0;
     }
 
     public Candidate toEntity() {
@@ -39,4 +41,6 @@ public class CandidateSaveRequestDto {
                 .gongyak(gongyak)
                 .build();
     }
+
+    public void setAgree() { this.agree++; }
 }

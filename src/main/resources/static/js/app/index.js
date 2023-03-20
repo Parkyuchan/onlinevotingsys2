@@ -22,7 +22,8 @@ var main = {
             department_candidate2: $('#department_candidate2').val(),
             name_candidate2: $('#name_candidate2').val(),
             id_candidate2: $('#id_candidate2').val(),
-            gongyak: $('#gongyak').val()
+            gongyak: $('#gongyak').val(),
+            agree: $('#agree').val()
         };
 
         $.ajax({
